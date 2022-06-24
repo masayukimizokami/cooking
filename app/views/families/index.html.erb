@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Families</h1>
+
+<table>
+
+  <tbody>
+    <% @families.each do |family| %>
+      <tr>
+        
+        <% if family.image.attached? %>
+        <td><%= image_tag family.image ,class: 'cook-image' %></td>
+        <% else %>
+        <% end %>
+        <td><%= family.family_name %></td>
+        <td><%= family.family_pr %></td>
+        <td><%= link_to '詳細', family %></td>
+        <td><%= link_to '編集', edit_family_path(family) %></td>
+        <td><%= link_to '削除', family, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Familyを追加する', new_family_path %>

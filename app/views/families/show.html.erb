@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Family name:</strong>
+  <%= @family.family_name %>
+</p>
+
+<% if @family.image.attached? %>
+    <%= image_tag @family.image ,class: 'cook-show-image' %>
+<% else %>
+    <%= image_tag 'no-image.user.png' ,class: 'cook-show-image'%>
+<% end %>
+
+<p>
+  <strong>メモ:</strong>
+  <%= @family.family_pr %>
+</p>
+
+<%= link_to '編集', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>
