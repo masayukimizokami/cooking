@@ -5,7 +5,12 @@
      <%= link_to cooks_path do %>
             <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXXttjWjHQoD4o4PKaSe7EwWVlGiTHxlr0RQ&usqp=CAU' ,class: 'logo-image'%>
         <% end %>
-        <br>
+        <% if user_signed_in? %>
+          <div id="header-user-name">
+            <h5><%= current_user.user_name %></h5>
+          </div>
+          <h5><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class:'dropdown-item' %></h5>
+        <% end %>
     <div id="header-search-box" >
       <%= search_form_for @q, url: search_cooks_path do |f| %>   
         <%= f.search_field :cookname_or_pr_or_cost_cont ,placeholder: "フリー検索",class:'search_field' %>
@@ -17,6 +22,14 @@
       <!--<%= link_to 'topページ', top_cooks_path %>-->
     </div>
     <br>
+
+     <div id="header-rigth-erea"> 
+      <div id="header-user-img-box">
+        
+        <!--ユーザー名-->
+       
+     
+    <div> 
    
 </div>
 </div>

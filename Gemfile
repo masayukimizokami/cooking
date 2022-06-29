@@ -63,4 +63,7 @@ end
 gem 'ransack'
 gem 'rinku'
 gem 'aws-sdk-s3'
+gem 'devise'
+
+
 

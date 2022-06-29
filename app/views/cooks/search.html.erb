@@ -89,6 +89,12 @@
                     <p>皆推し</p>
                 <% end %>
             </div>
+             <div class = "area-box">
+                <%= link_to families_path do %>
+                    <%= image_tag  'no-image.user.png',class: 'button-image'%>
+                    <p>ランキング</p>
+                <% end %>
+            </div>
         </div>
         <!--ここまでOK-->
         <br>
@@ -106,6 +112,7 @@
                 </div>
                 <div class = "boxright">
                     <h3><%= cook.cookname %></h3>
+                    <h4><%= cook.user.email %></h4>
                     <p class = "url"><%= Rinku.auto_link(cook.cookurl, :all, 'target="_blank"').html_safe %></p>
                     <p><%= cook.standby %></p>
                     <p><%= link_to '詳細', cook %>

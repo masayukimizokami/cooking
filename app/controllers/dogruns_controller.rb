@@ -1,6 +1,8 @@
 class DogrunsController < ApplicationController
   before_action :set_dogrun, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
   before_action :set_q
+  layout 'cook'
   # GET /cooks or /cooks.json
   # GET /dogruns or /dogruns.json
   def index

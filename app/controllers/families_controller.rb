@@ -1,10 +1,12 @@
 class FamiliesController < ApplicationController
   before_action :set_family, only: %i[ show edit update destroy ]
   before_action :set_q
+  before_action :authenticate_user!
+  layout 'cook'
 
   # GET /families or /families.json
   def index
-    @families = Family.all
+    @families = Family.order(point:"desc").last(20)
   end
 
   # GET /families/1 or /families/1.json
@@ -66,7 +68,7 @@ class FamiliesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def family_params
-      params.require(:family).permit(:family_name, :image, :family_pr)
+      params.require(:family).permit(:family_name, :image, :family_pr,:point)
     end
 
     def set_q

@@ -1,6 +1,7 @@
 class CooksController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_q
+  layout 'cook'
   # GET /cooks or /cooks.json
 
   def top 
@@ -40,7 +41,7 @@ class CooksController < ApplicationController
   # POST /cooks or /cooks.json
   def create
     @cook = Cook.new(cook_params)
-
+     @cook.user = current_user
     respond_to do |format|
       if @cook.save
         format.html { redirect_to cook_url(@cook), notice: "メニューが保存されました." }
